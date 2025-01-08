@@ -1,0 +1,40 @@
+export const 변수명= 객체, 값
+import {변수명} from "module-name";
+
+export default expression;
+import defaultExport from "module-name";
+
+
+map, filter, find, findindex
+
+#useRef : 남용하지 않는다.
+const inputRef = useRef(null) - null 생략가능
+
+<요소 ref={inputRef} />
+렌더링한 부모 컴포넌트는 inputRef.current.focus()를 호출할 수 있습니다.
+(current는 필수)
+inputRef.current.js 등 모두 사용 가능
+
+숫자유지 : 고유번호 처리
+const 사용자정의 = useRef(숫자)
+
+    //수정
+    const onEdit = (id) => {
+        setData(
+            data.map((item) => {
+                //함수 {} 안에 반드시 return이 필수
+                if (item.id === id) {
+                    //변경
+                    return {
+                        ...item, 현재값
+                        text: '아무개', 동일키 - 수정
+                        새로키 - 추가
+                    };
+                } else {
+                    return item;
+                }
+            })
+        );
+    };
+
+    조건 ? 참:거짓
