@@ -10,8 +10,9 @@ const Friend = () => {
     const [data, setData] = useState(dataList);
     const [isShow, setIsShow] = useState(false);
 
-    const changeInput = () => {
-        setIsShow(!isShow);
+    const changeInput = (e) => {
+        const { checked } = e.target;
+        setIsShow(checked);
     };
 
     const no = useRef(data.length + 1);
