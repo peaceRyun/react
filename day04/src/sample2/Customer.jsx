@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AddUser from './AddUser';
 import EditUser from './EditUser';
 import ListUser from './ListUser';
@@ -15,7 +15,8 @@ const dataList = [
 ];
 
 const Customer = () => {
-    const [data, setData] = useState(dataList);
+    // const [data, setData] = useState(dataList);
+    const [data, setData] = useState(() => JSON.parse(localStorage.getItem('data')) || dataList);
     const [isEdit, setIsEdit] = useState(false);
     const [current, setCurrent] = useState({});
     const no = useRef(data.length + 1);
@@ -40,6 +41,11 @@ const Customer = () => {
         setIsEdit(false);
         setData(data.map((item) => (item.id === user.id ? user : item)));
     };
+
+    //업데이트
+    useEffect(() => {
+        localStorage.setItem('data', JSON.stringify(data));
+    }, [data]);
 
     return (
         <div className='Customer'>

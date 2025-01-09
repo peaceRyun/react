@@ -1,9 +1,9 @@
 import TodoItem from './TodoItem';
 import './TodoList.scss';
-const TodoList = ({ data, onDel, onMod }) => {
+const TodoList = ({ todos, onDel, onMod }) => {
     return (
-        <ul className="TodoList">
-            {data.map((item) => (
+        <ul className='TodoList'>
+            {todos.map((item) => (
                 <TodoItem key={item.id} item={item} onDel={onDel} onMod={onMod} />
             ))}
         </ul>
