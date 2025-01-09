@@ -1,6 +1,7 @@
 // import Test1 from './components/Test1';
 // import Customer from './sample2/Customer';
-import Todos from './sample1-1/Todos';
+// import Todos from './sample1-1/Todos';
+import Cart from './sample3/Cart';
 import GlobalStyle from './styled/reset';
 
 const App = () => {
@@ -9,7 +10,8 @@ const App = () => {
             <GlobalStyle />
             {/* <Test1 /> */}
             {/* <Customer /> */}
-            <Todos />
+            {/* <Todos /> */}
+            <Cart />
         </>
     );
 };

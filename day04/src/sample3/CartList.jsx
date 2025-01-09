@@ -1,6 +1,6 @@
 import CartItem from './CartItem';
 
-const CartList = () => {
+const CartList = ({ data, onDel, onEdit }) => {
     return (
         <div className="con2">
             <p>
@@ -8,7 +8,9 @@ const CartList = () => {
                 <span className="total">총금액 : 0 원</span>
             </p>
             <ul className="list">
-                <CartItem />
+                {data.map((item) => (
+                    <CartItem key={item.id} item={item} onDel={onDel} onEdit={onEdit} />
+                ))}
             </ul>
         </div>
     );
