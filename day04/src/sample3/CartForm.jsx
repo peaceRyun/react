@@ -1,18 +1,18 @@
-const CartForm = ({ isEdit, changeInput, onSubmit, text, price, amount }) => {
+const CartForm = ({ isEdit, changeInput, onSubmit, text, price, amount, textRef }) => {
     return (
-        <div className="box con1">
+        <div className='box con1'>
             <form onSubmit={onSubmit}>
                 <p>
-                    <label htmlFor="">품목</label>
-                    <input type="text" name="text" value={text} onChange={changeInput} />
+                    <label htmlFor=''>품목</label>
+                    <input type='text' name='text' value={text} onChange={changeInput} ref={textRef} />
                 </p>
                 <p>
-                    ㅇ<label htmlFor="">가격</label>
-                    <input type="text" name="price" value={price} onChange={changeInput} />
+                    ㅇ<label htmlFor=''>가격</label>
+                    <input type='text' name='price' value={price} onChange={changeInput} />
                 </p>
                 <p>
-                    <label htmlFor="">수량</label>
-                    <input type="number" name="amount" value={amount} onChange={changeInput} />
+                    <label htmlFor=''>수량</label>
+                    <input type='number' name='amount' value={amount} onChange={changeInput} />
                 </p>
                 <p>
                     <button>{isEdit ? '수정' : '등록'}</button>
