@@ -1,6 +1,6 @@
 const Project = () => {
     return (
-        <div className="page">
+        <div className='page'>
             <h2> Project page</h2>
         </div>
     );

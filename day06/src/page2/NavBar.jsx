@@ -6,18 +6,27 @@ import { FiMenu } from 'react-icons/fi';
 
 const NavBar = () => {
     const [isShow, setIsShow] = useState(false);
-    const onToggle = () => {};
+    const onToggle = () => {
+        setIsShow(!isShow);
+    };
+    //x는 setIsShow 이용 해결
 
     return (
-        <div className="navbar">
-            <p className="all-menu">
+        <div className='navbar'>
+            <p className='all-menu' onClick={onToggle}>
                 <FiMenu></FiMenu>
             </p>
-            <nav>
+            <nav className={isShow ? 'on' : ''}>
                 <ul>
-                    <li>menu</li>
+                    {navList.map((item) => (
+                        <li key={item.id}>
+                            <Link to={item.path}>{item.title}</Link>
+                        </li>
+                    ))}
                 </ul>
-                <p className="close">X</p>
+                <p className='close' onClick={() => setIsShow(false)}>
+                    X
+                </p>
             </nav>
         </div>
     );
