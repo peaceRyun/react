@@ -1,10 +1,11 @@
-const BoardList = () => {
+const BoardList = ({ item }) => {
+    const { id, title, body } = item;
     return (
         <>
             <tr>
-                <td> 1 </td>
-                <td> 내용 </td>
-                <td> xxx </td>
+                <td> {id} </td>
+                <td> {title} </td>
+                <td> {body} </td>
             </tr>
         </>
     );

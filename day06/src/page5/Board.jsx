@@ -1,5 +1,6 @@
 import BoardList from './Board.List';
 import BoardPaging from './BoardPaging';
+import { useAxios } from '../hooks/useAxios';
 
 /*
 posts : 데이터 , 
@@ -15,17 +16,20 @@ http://61.107.76.13/Li/04_25.html
 */
 
 const Board = () => {
+    const url = 'https://jsonplaceholder.typicode.com/posts';
+    const { state: data } = useAxios(url);
+
     return (
-        <div className="board">
-            <div className="inner">
+        <div className='board'>
+            <div className='inner'>
                 <h2>운동화 게시판 </h2>
 
                 <table>
                     <caption>게시판</caption>
                     <colgroup>
-                        <col className="id" />
-                        <col className="title" />
-                        <col className="body" />
+                        <col className='id' />
+                        <col className='title' />
+                        <col className='body' />
                     </colgroup>
                     <thead>
                         <tr>
@@ -34,12 +38,14 @@ const Board = () => {
                             <th>설명</th>
                         </tr>
                     </thead>
-                    <tbody className="table-body">
-                        <BoardList />
+                    <tbody className='table-body'>
+                        {data.map((item) => (
+                            <BoardList key={item.id} item={item} />
+                        ))}
                     </tbody>
                 </table>
 
-                <p className="paging">
+                <p className='paging'>
                     <BoardPaging />
                 </p>
             </div>
