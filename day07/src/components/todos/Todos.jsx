@@ -1,3 +1,6 @@
+import TodoInput from './TodoInput';
+import TodoList from './TodoList';
+
 const Todos = () => {
     return (
         <div>

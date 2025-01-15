@@ -1,11 +1,17 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { decrement, increment, onReset } from '../../store/modules/counterSlice';
+
 const Counter = () => {
+    const count = useSelector((state) => state.counterR.count);
+    const { color } = useSelector((state) => state.colorR);
+    const dispatch = useDispatch();
     return (
         <div>
-            <h2 style={{ fontSize: 40 }}>카운트 : </h2>
+            <h2 style={{ fontSize: 40, color: color }}>카운트 : {count}</h2>
             <p>
-                <button>증가</button>
-                <button>감소</button>
-                <button>초기화</button>
+                <button onClick={() => dispatch(increment())}>증가</button>
+                <button onClick={() => dispatch(decrement())}>감소</button>
+                <button onClick={() => dispatch(onReset())}>초기화</button>
             </p>
         </div>
     );

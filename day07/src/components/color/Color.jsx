@@ -12,12 +12,12 @@ const Color = () => {
     return (
         <div>
             <h2>1. UI 디자인 </h2>
-            <h2 style={{ fontSize: 30, color: 'pink' }}>Color: {color}</h2>
+            <h2 style={{ fontSize: 30, color: color }}>Color: {color}</h2>
             <p>
-                <button onClick={() => dispatch(onGreen)}>green</button>
-                <button onClick={() => dispatch(onRed)}>red</button>
-                <button onClick={() => dispatch(onBlue)}>blue</button>
-                <button onClick={() => dispatch(onPink)}>pink</button>
+                <button onClick={() => dispatch(onGreen())}>green</button>
+                <button onClick={() => dispatch(onRed())}>red</button>
+                <button onClick={() => dispatch(onBlue())}>blue</button>
+                <button onClick={() => dispatch(onPink())}>pink</button>
             </p>
         </div>
     );
