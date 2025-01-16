@@ -1,12 +1,14 @@
-const BoardList = ({ item }) => {
-    const { id, title, body } = item;
+const BoardList = ({ currentPosts, loading }) => {
+    if (!loading) return <div>loading...</div>;
     return (
         <>
-            <tr>
-                <td> {id} </td>
-                <td> {title} </td>
-                <td> {body} </td>
-            </tr>
+            {currentPosts.map((item) => (
+                <tr key={item.id}>
+                    <td> {item.id} </td>
+                    <td> {item.title} </td>
+                    <td> {item.body} </td>
+                </tr>
+            ))}
         </>
     );
 };

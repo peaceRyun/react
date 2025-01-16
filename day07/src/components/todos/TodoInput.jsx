@@ -10,7 +10,7 @@ const TodoInput = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         dispatch(todosActions.onAdd(text));
-        dispatch(todosActions.changeInput());
+        dispatch(todosActions.changeInput(''));
     };
 
     return (

@@ -1,14 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+//api -> todoData.js를 불러오기
+//포폴할때는 편하게 할 경우 - data 저장소를 따로 만들어서
+// 깃주소 불러오기
+//이미지 경로 문제 -> 이미지 저장소를 깃에 올리고 주소 복사 api
+import dataList from '../../assets/api/todoData';
 
-const dataList = [
-    { id: 1, text: '홍길동1', isChk: false },
-    { id: 2, text: '홍길동2', isChk: true },
-    { id: 3, text: '홍길동3', isChk: false },
-    { id: 4, text: '홍길동4', isChk: false },
-    { id: 5, text: '홍길동5', isChk: false },
-];
 const initialState = {
-    todos: dataList,
+    todos: localStorage.getItem('todos') ? JSON.parse(localStorage.getItem('todos')) : dataList,
     text: '',
 };
 
@@ -24,9 +22,11 @@ export const todosSlice = createSlice({
             //push : toolkit 에서 관리한다 -> 불변성 유지 처리해준다.
             // state.todos.push({ id: no++, text: action.payload, isChk: false });
             state.todos = [...state.todos, { id: no++, text: action.payload, isChk: false }];
+            localStorage.setItem('todos', JSON.stringify(state.todos));
         },
         onDel: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+            localStorage.setItem('todos', JSON.stringify(state.todos));
         },
         onMod1: (state, action) => {
             state.todos = state.todos.map((todo) =>
