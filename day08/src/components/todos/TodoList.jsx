@@ -22,7 +22,9 @@ const TodoList = () => {
     }, [dispatch]);
     return (
         <TodoUl>
-            <TodoItem />
+            {data.map((todo) => (
+                <TodoItem key={todo.id} todo={todo} />
+            ))}
         </TodoUl>
     );
 };
