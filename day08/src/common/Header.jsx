@@ -23,10 +23,10 @@ const HeaderCon = styled.header`
 const Header = () => {
     return (
         <HeaderCon>
-            <div className="inner">
+            <div className='inner'>
                 <h1>
-                    <Link to="">
-                        <img src="/images/logo.svg" alt="" />
+                    <Link to='/'>
+                        <img src='/images/logo.svg' alt='' />
                     </Link>
                 </h1>
 
