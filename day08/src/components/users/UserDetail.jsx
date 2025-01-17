@@ -27,11 +27,11 @@ const UserPageCon = styled.div`
     }
 `;
 
-const UserDetaile = () => {
+const UserDetail = () => {
     const onGo = () => {};
     return (
         <UserPageCon>
-            <div className="inner">
+            <div className='inner'>
                 <article>
                     <h2> name 의 상세 페이지 </h2>
                     <p> 번호 : id </p>
@@ -46,4 +46,4 @@ const UserDetaile = () => {
     );
 };
 
-export default UserDetaile;
+export default UserDetail;

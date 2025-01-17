@@ -18,7 +18,22 @@ const Nav = () => {
         <NavCon>
             <ul>
                 <li>
-                    <Link to="/">홈</Link>
+                    <Link to='/about'>About</Link>
+                </li>
+                <li>
+                    <Link to='/profile'>Profile</Link>
+                </li>
+                <li>
+                    <Link to='/movie'>Movie</Link>
+                </li>
+                <li>
+                    <Link to='/todos'>Todos</Link>
+                </li>
+                <li>
+                    <Link to='/post'>Post</Link>
+                </li>
+                <li>
+                    <Link to='/user'>User</Link>
                 </li>
             </ul>
         </NavCon>
