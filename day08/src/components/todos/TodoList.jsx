@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import TodoItem from './TodoItem';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getTodos, todosActions } from '../../store/modules/todoSlice';
 
 const TodoUl = styled.ul`
     border: 1px solid #999;
@@ -12,6 +14,12 @@ const TodoUl = styled.ul`
 `;
 
 const TodoList = () => {
+    const { data } = useSelector((state) => state.todoR);
+    //비동기는 useEffect -> 함수호출
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getTodos());
+    }, [dispatch]);
     return (
         <TodoUl>
             <TodoItem />

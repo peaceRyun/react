@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import MovieItem from './MovieItem';
+import { useSelector } from 'react-redux';
 
 const MovieCon = styled.ul`
     text-align: center;
@@ -57,9 +58,12 @@ const MovieCon = styled.ul`
 `;
 
 const MovieList = () => {
+    const { movies } = useSelector((state) => state.movieR);
     return (
         <MovieCon>
-            <MovieItem />
+            {movies.map((movie) => (
+                <MovieItem key={movie.id} movie={movie} />
+            ))}
         </MovieCon>
     );
 };

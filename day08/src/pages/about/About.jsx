@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { aboutActions } from '../../store/modules/aboutSlice';
 
 const AboutCon = styled.div`
     h3 {
@@ -14,13 +15,17 @@ const AboutCon = styled.div`
 `;
 
 const About = () => {
+    // 값처리
+    const { text } = useSelector((state) => state.aboutR);
+    const dispatch = useDispatch();
+
     return (
         <AboutCon>
-            <div className="inner">
+            <div className='inner'>
                 <h2> About Page입니다.</h2>
 
-                <h3>text</h3>
-                <button> 인사 </button>
+                <h3>{text}</h3>
+                <button onClick={() => dispatch(aboutActions.onView('반가워'))}> 인사 </button>
             </div>
         </AboutCon>
     );
