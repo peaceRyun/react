@@ -15,11 +15,12 @@ const PostUl = styled.ul`
 
 const PostList = () => {
     const { post } = useSelector((state) => state.postR);
+    const { text } = useSelector((state) => state.postR);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getPost());
-    }, [dispatch]);
+        dispatch(getPost(text));
+    }, [text]);
     return (
         <PostUl>
             {post.map((post) => (

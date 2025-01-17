@@ -19,7 +19,7 @@ const TodoList = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getTodos());
-    }, [dispatch]);
+    }, []);
     return (
         <TodoUl>
             {data.map((todo) => (
