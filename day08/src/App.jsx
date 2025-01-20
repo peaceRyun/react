@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import GlobalStyle from './styled/reset';
 import Layout from './common/Layout';
@@ -9,6 +9,7 @@ import Movie from './pages/movie/Movie';
 import Todos from './pages/todos/Todos';
 import Post from './pages/post/Post';
 import User from './pages/user/User';
+import UserDetail from './components/users/UserDetail';
 
 const App = () => {
     return (
@@ -25,7 +26,7 @@ const App = () => {
                         <Route path='/post' element={<Post />} />
                         <Route path='/user'>
                             <Route index element={<User />} />
-                            {/* <Route path=':userID' element={<Home />} /> */}
+                            <Route path=':userID' element={<UserDetail />} />
                         </Route>
                     </Route>
                 </Routes>

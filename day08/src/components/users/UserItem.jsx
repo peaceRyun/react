@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 
-const UserItem = () => {
+const UserItem = ({ item }) => {
+    const { name, id } = item;
     return (
         <li>
-            <Link to=""> name </Link>
+            <Link to={`${id}`}> {name} </Link>
         </li>
     );
 };

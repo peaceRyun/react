@@ -3,6 +3,7 @@ import aboutR from './modules/aboutSlice';
 import movieR from './modules/movieSlice';
 import todoR from './modules/todoSlice';
 import postR from './modules/postSlice';
+import userR from './modules/userSlice';
 
 export const store = configureStore({
     reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
         movieR,
         todoR,
         postR,
+        userR,
     },
 });
