@@ -1,4 +1,4 @@
-import Test2 from './components/Test2';
+import Test2 from './components/Test5';
 import GlobalStyle from './styled/reset';
 
 const App = () => {
