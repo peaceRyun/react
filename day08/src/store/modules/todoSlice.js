@@ -1,11 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-export const getTodos = createAsyncThunk('todos/getTodos', async () => {
-    const url = `https://jsonplaceholder.typicode.com/todos`;
-    const response = await axios.get(url);
-    return response.data;
-});
+import { createSlice } from '@reduxjs/toolkit';
+import { getTodos } from './getThunk';
 
 const initialState = {
     data: [],

@@ -1,18 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
 import { aboutActions } from '../../store/modules/aboutSlice';
-
-const AboutCon = styled.div`
-    h3 {
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-    button {
-        width: 150px;
-        height: 50px;
-        cursor: pointer;
-    }
-`;
+import { AboutCon } from './style';
 
 const About = () => {
     // 값처리

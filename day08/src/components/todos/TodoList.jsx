@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import TodoItem from './TodoItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getTodos, todosActions } from '../../store/modules/todoSlice';
+import { getTodos } from '../../store/modules/getThunk';
 
 const TodoUl = styled.ul`
     border: 1px solid #999;

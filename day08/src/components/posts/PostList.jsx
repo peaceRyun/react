@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PostItem from './PostItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getPost } from '../../store/modules/postSlice';
+import { getPost } from '../../store/modules/getThunk';
 
 const PostUl = styled.ul`
     border: 1px solid #999;

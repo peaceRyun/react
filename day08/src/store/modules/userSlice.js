@@ -1,12 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-// import { userAPI } from './userAPI' 외부 api 만들어서 불러오기
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
+import { getUser } from './getThunk';
 
-export const getUser = createAsyncThunk('users/getUser', async () => {
-    const url = `https://jsonplaceholder.typicode.com/users`;
-    const response = await axios.get(url);
-    return response.data;
-});
 const initialState = {
     user: [],
     loading: true,

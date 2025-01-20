@@ -1,21 +1,9 @@
-import styled from 'styled-components';
-
-const HomeCon = styled.div`
-    h3 {
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-    button {
-        width: 150px;
-        height: 50px;
-        cursor: pointer;
-    }
-`;
+import { HomeCon } from './style';
 
 const Home = () => {
     return (
         <HomeCon style={{ textAlign: 'center', height: 800 }}>
-            <div className="inner">
+            <div className='inner'>
                 <h2> Home Page입니다.</h2>
             </div>
         </HomeCon>

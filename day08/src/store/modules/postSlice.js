@@ -1,11 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-// import { userAPI } from './userAPI' 외부 api 만들어서 불러오기
-import axios from 'axios';
-export const getPost = createAsyncThunk('posts/getPost', async (text) => {
-    const url = `https://hn.algolia.com/api/v1/search?query=${text}`;
-    const response = await axios.get(url);
-    return response.data.hits;
-});
+import { createSlice } from '@reduxjs/toolkit';
+import { getPost } from './getThunk';
+
 const initialState = {
     post: [],
     loading: true,

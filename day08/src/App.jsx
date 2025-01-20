@@ -2,14 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import GlobalStyle from './styled/reset';
 import Layout from './common/Layout';
-import Home from './pages/home/Home';
-import About from './pages/about/About';
-import Profile from './pages/profile/Profile';
-import Movie from './pages/movie/Movie';
-import Todos from './pages/todos/Todos';
-import Post from './pages/post/Post';
-import User from './pages/user/User';
-import UserDetail from './components/users/UserDetail';
+import { About, Home, Movie, Post, Profile, Todos, User } from './pages';
+import { UserDetail } from './components';
 
 const App = () => {
     return (

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import UserItem from '../../components/users/UserItem';
 import { useEffect } from 'react';
-import { getUser } from '../../store/modules/userSlice';
+import { getUser } from '../../store/modules/getThunk';
 
 const UserCon = styled.div`
     ul {
