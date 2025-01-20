@@ -1,0 +1,17 @@
+.wrap {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+.box {
+    width: 120px;
+    height: 120px;
+    border: 1px solid red;
+}
+.bg {
+    background: skyblue;
+}
+.size {
+    width: 160px;
+    height: 110px;
+}
