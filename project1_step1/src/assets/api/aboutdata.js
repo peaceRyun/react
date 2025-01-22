@@ -2,6 +2,9 @@ export default [
     {
         id: 1,
         name: '서현진',
+        titleimg: '',
+        bgimg: '',
+        works: [{}],
         imgdata: [
             { no: 1, imgurl: '/images/about/con3_img1.jpg', desc: '' },
             { no: 2, imgurl: '/images/about/con3_img2.jpg', desc: '' },

@@ -4,25 +4,26 @@ import { BiLike, BiSolidLike } from 'react-icons/bi';
 import { GoHeart } from 'react-icons/go';
 import { useDispatch, useSelector } from 'react-redux';
 
-const MelonItem = () => {
+const MelonItem = ({ item }) => {
+    const { title, album, singer, id, like, poster } = item;
     return (
         <tr>
-            <td>1</td>
-            <td className="img">
-                <img src="" alt="" width="60" />
-                <p className="img">
-                    <span>title</span>
-                    singer
+            <td>{id}</td>
+            <td className='img'>
+                <img src={poster} alt={title} width='60' />
+                <p className='img'>
+                    <span>{title}</span>
+                    {singer}
                 </p>
             </td>
             <td>{album}</td>
-            <td className="like">
+            <td className='like'>
                 <i>
                     <BiSolidLike />
                     {/* <BiLike /> */}
                 </i>
                 {/* 정규표현식 : xxx.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') */}
-                like
+                like : {like}
             </td>
             <td>
                 <i>
@@ -36,7 +37,7 @@ const MelonItem = () => {
 
                 <span style={{ marginLeft: 10 }}>state</span>
             </td>
-            <td className="like">
+            <td className='like'>
                 <span>
                     <i>
                         {/* <FcLikePlaceholder /> */}

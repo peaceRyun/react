@@ -1,17 +1,18 @@
+import { MelonForm, MelonList } from '../../components';
 import { MelonContainer } from './style';
 import { useDispatch, useSelector } from 'react-redux';
 
-const Melon = () => {
+const Music = () => {
     return (
         <MelonContainer>
-            <div className="inner">
+            <div className='inner'>
                 <h3> xxx </h3>
-                {/* <MelonForm /> */}
-                {/* <MelonList /> */}
+                <MelonForm />
+                <MelonList />
                 {/* <MelonModal />  */}
             </div>
         </MelonContainer>
     );
 };
 
-export default Melon;
+export default Music;

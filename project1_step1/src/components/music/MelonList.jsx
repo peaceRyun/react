@@ -1,19 +1,26 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MelonListContainer } from './style';
 import MelonItem from './MelonItem';
+import { useEffect } from 'react';
+import { getMusic } from '../../store/modules/getThunk';
 
 const MelonList = () => {
+    const { musicData } = useSelector((state) => state.musicR);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getMusic());
+    }, []);
     return (
-        <MelonListContainer className="MelonList">
+        <MelonListContainer className='MelonList'>
             <table>
                 <colgroup>
-                    <col className="w1" />
-                    <col className="w2" />
-                    <col className="w3" />
-                    <col className="w4" />
-                    <col className="w5" />
-                    <col className="w6" />
-                    <col className="w7" />
+                    <col className='w1' />
+                    <col className='w2' />
+                    <col className='w3' />
+                    <col className='w4' />
+                    <col className='w5' />
+                    <col className='w6' />
+                    <col className='w7' />
                 </colgroup>
                 <thead>
                     <tr>
@@ -27,7 +34,9 @@ const MelonList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <MelonItem />
+                    {musicData.map((item) => (
+                        <MelonItem key={item.id} item={item} />
+                    ))}
                 </tbody>
             </table>
         </MelonListContainer>

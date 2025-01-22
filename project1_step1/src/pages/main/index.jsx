@@ -3,6 +3,7 @@ import { MainWrap, VisualWrap } from './style';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
+import { Content1, Content2, Content3 } from '../../components';
 
 const Main = () => {
     return (
@@ -18,22 +19,23 @@ const Main = () => {
                     loop={true}
                 >
                     <SwiperSlide>
-                        <img src="./images/visual1.jpg" alt="" />
+                        <img src='./images/visual1.jpg' alt='' />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src="./images/visual2.jpg" alt="" />
+                        <img src='./images/visual2.jpg' alt='' />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src="./images/visual3.jpg" alt="" />
+                        <img src='./images/visual3.jpg' alt='' />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img src="./images/visual4.jpg" alt="" />
+                        <img src='./images/visual4.jpg' alt='' />
                     </SwiperSlide>
                 </Swiper>
             </VisualWrap>
             <MainWrap>
-                {/* <Content1 /> */}
-                {/* <Content2 /> */}
+                <Content1 />
+                <Content2 />
+                <Content3 />
             </MainWrap>
         </>
     );

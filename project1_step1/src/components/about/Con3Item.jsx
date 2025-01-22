@@ -1,9 +1,10 @@
 import 'swiper/css';
 
-const Con3Item = () => {
+const Con3Item = ({ item }) => {
+    const { imgurl, id, desc } = item;
     return (
         <>
-            <img src="" alt="" />
+            <img src={imgurl} alt='' />
         </>
     );
 };

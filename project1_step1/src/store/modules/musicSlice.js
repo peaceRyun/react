@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-const initialState = {};
+import { getMusic } from './getThunk';
+const initialState = {
+    musicData: [],
+    loading: true,
+    error: null,
+};
 
 export const musicSlice = createSlice({
     name: 'music',
@@ -8,9 +12,17 @@ export const musicSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getxxx.pending, (state, action) => {})
-            .addCase(getxxx.fulfilled, (state, action) => {})
-            .addCase(getxxx.rejected, (state, action) => {});
+            .addCase(getMusic.pending, (state, action) => {
+                state.loading = true;
+            })
+            .addCase(getMusic.fulfilled, (state, action) => {
+                state.loading = false;
+                state.musicData = action.payload;
+            })
+            .addCase(getMusic.rejected, (state, action) => {
+                state.loading = true;
+                state.error = '주소가 잘못되었습니다.';
+            });
     },
 });
 

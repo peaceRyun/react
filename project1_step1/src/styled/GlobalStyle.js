@@ -50,7 +50,11 @@ const GlobalStyle = createGlobalStyle`
 
   button { border:none; cursor: pointer; }
   .hide{
-     display: none;
+     overflow: hidden;
+     text-indent: -9999px;
+     width: 0;
+     height: 0;
+     line-height: 0;
   }
 `;
 
