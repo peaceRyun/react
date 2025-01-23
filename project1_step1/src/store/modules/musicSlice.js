@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getMusic } from './getThunk';
 const initialState = {
+    originalMusicData: [],
     musicData: [],
     loading: true,
     error: null,
@@ -57,11 +58,10 @@ export const musicSlice = createSlice({
             }
         },
         onSearch: (state, action) => {
-            const id = action.payload;
             const keyword = action.payload;
             if (keyword) {
-                state.musicData = state.musicData.filter(
-                    (music) => music.id === id && music.title.includes(keyword) === true
+                state.musicData = state.originalMusicData.filter(
+                    (music) => music.title.toLowerCase().includes(keyword.toLowerCase()) === true
                 );
             }
         },
@@ -74,6 +74,7 @@ export const musicSlice = createSlice({
             .addCase(getMusic.fulfilled, (state, action) => {
                 state.loading = false;
                 state.musicData = action.payload;
+                state.originalMusicData = action.payload;
             })
             .addCase(getMusic.rejected, (state, action) => {
                 state.loading = true;
