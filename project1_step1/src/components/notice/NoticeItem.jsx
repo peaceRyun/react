@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 
-const NoticeItem = () => {
+const NoticeItem = ({ item }) => {
+    const { id, title, date } = item;
     return (
         <tr>
-            <td> id </td>
+            <td> {id} </td>
             <td>
-                <Link to="">title</Link>
+                <Link to={`/notice/${id}`}>{title}</Link>
             </td>
-            <td> date</td>
+            <td> {date}</td>
         </tr>
     );
 };

@@ -58,5 +58,14 @@ export default 이름Slice.reducer;
 방법2  : 하나로 slice 작업 
 
 
-
-
+/////////////////
+게시판 원리
+posts : 데이터 ,
+postsPerPage = 페이지에 보여줄 개수
+currentPage = 현재 페이지
+firstPost = 0, 10, 20 ..  시작번호
+lastPost  =10, 20, 30,  - 끝번호
+postMod = 한페이지에 보여줄개수  -> 남은개수
+               115개 데이터가 있으면 10개씩 보여줄때 남은 데이터가 5개
+pageNumber  = 페이징의 a의 개수
+총 페이지 수 = Math.ceil(전체 컨텐츠 개수 / 한 페이지에 보여주고자 하는 컨텐츠의 개수)

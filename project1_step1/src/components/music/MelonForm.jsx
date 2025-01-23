@@ -13,6 +13,7 @@ const MelonForm = () => {
         e.preventDefault();
         dispatch(musicActions.onSearch(text));
     };
+
     return (
         <MelonFormContainer className='MelonForm' onSubmit={onSubmit}>
             <input type='text' placeholder='곡명을 검색하세요' value={text} onChange={changeInput} />

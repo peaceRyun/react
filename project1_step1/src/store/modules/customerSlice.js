@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import customerdata from '../../assets/api/customerdata';
 
-const initialState = {};
+const initialState = {
+    customerData: customerdata,
+};
 
 export const customerSlice = createSlice({
     name: 'customer',

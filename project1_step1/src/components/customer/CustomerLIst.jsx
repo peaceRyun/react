@@ -4,17 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const CustomerLIst = () => {
-    c;
-
+    const { customerData } = useSelector((state) => state.customerR);
+    const postsPerPage = 10;
+    const currentPage = 1;
+    const lastPost = currentPage * postsPerPage;
+    const firstPost = lastPost - postsPerPage;
+    const currentPost = customerData.slice(firstPost, lastPost);
     return (
         <CustomerLIstWrap>
-            <table className="customerTable">
+            <table className='customerTable'>
                 <caption>게시판</caption>
                 <colgroup>
-                    <col className="num" />
-                    <col className="title" />
-                    <col className="name" />
-                    <col className="date" />
+                    <col className='num' />
+                    <col className='title' />
+                    <col className='name' />
+                    <col className='date' />
                 </colgroup>
                 <thead>
                     <tr>
@@ -25,7 +29,9 @@ const CustomerLIst = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <CustomerItem />
+                    {currentPost.map((item) => (
+                        <CustomerItem key={item.id} item={item} />
+                    ))}
                 </tbody>
             </table>
             <p>

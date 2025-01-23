@@ -4,14 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 const NoticeList = () => {
+    const { noticeData } = useSelector((state) => state.noticeR);
+    const postsPerPage = 10;
+    const currentPage = 1;
+
+    const lastPost = currentPage * postsPerPage;
+    const firstPost = lastPost - postsPerPage;
+    const currentPost = noticeData.slice(firstPost, lastPost);
     return (
         <NoticeListWrap>
-            <table className="noticeTable">
+            <table className='noticeTable'>
                 <caption>게시판</caption>
                 <colgroup>
-                    <col className="num" />
-                    <col className="title" />
-                    <col className="date" />
+                    <col className='num' />
+                    <col className='title' />
+                    <col className='date' />
                 </colgroup>
                 <thead>
                     <tr>
@@ -21,7 +28,9 @@ const NoticeList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <NoticeItem />
+                    {currentPost.map((item) => (
+                        <NoticeItem key={item.id} item={item} />
+                    ))}
                 </tbody>
             </table>
         </NoticeListWrap>

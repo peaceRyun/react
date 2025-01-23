@@ -7,10 +7,10 @@ import { musicActions } from '../../store/modules/musicSlice';
 
 const MelonItem = ({ item }) => {
     const dispatch = useDispatch();
-    const { title, album, singer, id, like, poster, done, isInter } = item;
+    const { state, rank, title, album, singer, id, like, poster, done, isInter } = item;
     return (
         <tr>
-            <td>{id}</td>
+            <td>{rank}</td>
             <td className='img'>
                 <img src={poster} alt={title} width='60' />
                 <p className='img'>
@@ -33,9 +33,9 @@ const MelonItem = ({ item }) => {
                 </i>
             </td>
             <td>
-                <FcUp style={{ color: 'red' }} />
-                {/* <FcMinus color="blue" /> 
-                 <FcDown />  */}
+                {state === '상승' && <FcUp style={{ color: 'blue' }} />}
+                {state === '하강' && <FcDown style={{ color: 'red' }} />}
+                {state === '유지' && <FcMinus style={{ color: 'black' }} />}
 
                 <span style={{ marginLeft: 10 }}>state</span>
             </td>

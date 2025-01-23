@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 
-const CustomerItem = () => {
+const CustomerItem = ({ item }) => {
+    const { id, title, name, date } = item;
     return (
         <tr>
-            <td> 1 </td>
+            <td> {id} </td>
 
             <td>
-                <Link to=""> title </Link>
+                <Link to={`/customer/${id}`}> {title} </Link>
             </td>
-            <td> name </td>
-            <td> date </td>
+            <td> {name} </td>
+            <td> {date} </td>
         </tr>
     );
 };

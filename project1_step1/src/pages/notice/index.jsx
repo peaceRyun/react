@@ -1,12 +1,13 @@
+import { NoticeForm, NoticeList } from '../../components';
 import { NoticeWrap } from './style';
 
 const Notice = () => {
     return (
         <NoticeWrap>
-            <div className="inner">
+            <div className='inner'>
                 <h2>게시판</h2>
-                {/* <NoticeForm /> */}
-                {/* <NoticeList /> */}
+                <NoticeForm />
+                <NoticeList />
                 {/* <Pagination /> */}
             </div>
         </NoticeWrap>

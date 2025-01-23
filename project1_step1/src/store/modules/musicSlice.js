@@ -63,6 +63,8 @@ export const musicSlice = createSlice({
                 state.musicData = state.originalMusicData.filter(
                     (music) => music.title.toLowerCase().includes(keyword.toLowerCase()) === true
                 );
+            } else if (keyword === '') {
+                state.musicData = state.originalMusicData;
             }
         },
     },
