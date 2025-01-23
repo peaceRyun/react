@@ -3,9 +3,11 @@ import { PiVideoCamera } from 'react-icons/pi';
 import { BiLike, BiSolidLike } from 'react-icons/bi';
 import { GoHeart } from 'react-icons/go';
 import { useDispatch, useSelector } from 'react-redux';
+import { musicActions } from '../../store/modules/musicSlice';
 
 const MelonItem = ({ item }) => {
-    const { title, album, singer, id, like, poster } = item;
+    const dispatch = useDispatch();
+    const { title, album, singer, id, like, poster, done, isInter } = item;
     return (
         <tr>
             <td>{id}</td>
@@ -18,15 +20,15 @@ const MelonItem = ({ item }) => {
             </td>
             <td>{album}</td>
             <td className='like'>
-                <i>
-                    <BiSolidLike />
-                    {/* <BiLike /> */}
-                </i>
-                {/* 정규표현식 : xxx.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') */}
-                like : {like}
+                <i onClick={() => dispatch(musicActions.onLike(id))}>{done ? <BiSolidLike /> : <BiLike />}</i>
+                {like.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </td>
             <td>
-                <i>
+                <i
+                    onClick={() => {
+                        dispatch(musicActions.onModal(id));
+                    }}
+                >
                     <PiVideoCamera />
                 </i>
             </td>
@@ -39,10 +41,9 @@ const MelonItem = ({ item }) => {
             </td>
             <td className='like'>
                 <span>
-                    <i>
+                    <i onClick={() => dispatch(musicActions.onInter(id))}>
                         {/* <FcLikePlaceholder /> */}
-                        <GoHeart />
-                        {/* <FcLike />  */}
+                        {isInter ? <FcLike /> : <GoHeart />}
                     </i>
                 </span>
             </td>

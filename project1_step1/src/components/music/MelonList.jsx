@@ -1,15 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { MelonListContainer } from './style';
 import MelonItem from './MelonItem';
-import { useEffect } from 'react';
-import { getMusic } from '../../store/modules/getThunk';
 
 const MelonList = () => {
     const { musicData } = useSelector((state) => state.musicR);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getMusic());
-    }, []);
     return (
         <MelonListContainer className='MelonList'>
             <table>
