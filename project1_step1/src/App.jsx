@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import GlobalStyle from './styled/GlobalStyle';
 import Layout from './common/Layout';
 import { About, Artist, Customer, Gallery, Join, Login, Logout, Main, Music, Notice } from './pages';
-import { CustomerDetail, NoticeDetail } from './components';
+import { CustomerAdd, CustomerDetail, CustomerEdit, NoticeDetail } from './components';
 
 const App = () => {
     return (
@@ -25,6 +25,8 @@ const App = () => {
                         </Route>
                         <Route path='/customer'>
                             <Route index element={<Customer />} />
+                            <Route path='customerAdd' element={<CustomerAdd />} />
+                            <Route path='customerEdit' element={<CustomerEdit />} />
                             <Route path=':customerID' element={<CustomerDetail />} />
                         </Route>
                     </Route>

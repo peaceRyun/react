@@ -1,26 +1,58 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { CustomerAddWrap } from './style';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { customerActions } from '../../store/modules/customerSlice';
 
 const CustomerEdit = () => {
+    const { current } = useSelector((state) => state.customerR);
+    const [user, setUser] = useState(current);
+    const { title, name, content } = user;
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const onList = (e) => {
+        e.preventDefault();
+        navigate('/customer');
+    };
+    const changeInput = (e) => {
+        const { value, name } = e.target;
+        setUser({ ...user, [name]: value });
+    };
+    const now = new Date();
+    const onSubmit = (e) => {
+        e.preventDefault();
+        if (!title || !name || !content) {
+            return;
+        }
+        user.date = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+        dispatch(customerActions.update(user));
+        navigate('/customer');
+    };
     return (
         <CustomerAddWrap>
-            <div className="inner">
+            <div className='inner'>
                 <h2> 고객문의수정 </h2>
-                <form className="customer-add" onSubmit={onSubmit}>
+                <form className='customer-add' onSubmit={onSubmit}>
                     <p>
-                        <input type="text" placeholder="제목" name="" />
+                        <input type='text' placeholder='제목' name='title' value={title} onChange={changeInput} />
                     </p>
                     <p>
-                        <input type="text" placeholder="작성자" name="" />
+                        <input type='text' placeholder='작성자' name='name' value={name} onChange={changeInput} />
                     </p>
                     <p>
-                        <textarea cols="100" rows="10" placeholder="문의하기" name=""></textarea>
+                        <textarea
+                            cols='100'
+                            rows='10'
+                            placeholder='문의하기'
+                            name='content'
+                            value={content}
+                            onChange={changeInput}
+                        ></textarea>
                     </p>
                     <p>
-                        <button>목록으로</button>
-                        <button type="submit">저장하기</button>
-                        <button>취소하기</button>
+                        <button onClick={onList}>목록으로</button>
+                        <button type='submit'>저장하기</button>
+                        <button onClick={onList}>취소하기</button>
                     </p>
                 </form>
             </div>

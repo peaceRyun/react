@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { NavWrap, TopMenu } from './style';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavBar = () => {
+    const { authed } = useSelector((state) => state.authR);
     return (
         <>
             <NavWrap className='nav'>
@@ -32,14 +33,15 @@ const NavBar = () => {
                 <li>
                     <Link to='/join'>회원가입</Link>
                 </li>
-
-                {/* <li>
-                    <Link to= '/logout' >로그아웃</Link>
-                </li> */}
-
-                <li>
-                    <Link to='/login'>로그인</Link>
-                </li>
+                {authed ? (
+                    <li>
+                        <Link to='/logout'>로그아웃</Link>
+                    </li>
+                ) : (
+                    <li>
+                        <Link to='/login'>로그인</Link>
+                    </li>
+                )}
             </TopMenu>
         </>
     );

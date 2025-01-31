@@ -6,10 +6,19 @@ import { useNavigate } from 'react-router-dom';
 const CustomerLIst = () => {
     const { customerData } = useSelector((state) => state.customerR);
     const postsPerPage = 10;
-    const currentPage = 1;
+    const currentPage = 3;
     const lastPost = currentPage * postsPerPage;
     const firstPost = lastPost - postsPerPage;
     const currentPost = customerData.slice(firstPost, lastPost);
+    const { authed } = useSelector((state) => state.authR);
+    const navigate = useNavigate();
+    const onGoAdd = () => {
+        if (authed) {
+            navigate('/customer/customerAdd');
+        } else {
+            navigate('/login');
+        }
+    };
     return (
         <CustomerLIstWrap>
             <table className='customerTable'>
@@ -35,7 +44,7 @@ const CustomerLIst = () => {
                 </tbody>
             </table>
             <p>
-                <button>글 작성 </button>
+                <button onClick={onGoAdd}>글 작성 </button>
             </p>
         </CustomerLIstWrap>
     );
