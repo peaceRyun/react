@@ -1,8 +1,17 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LogoutWrap } from './style';
+import { useNavigate } from 'react-router-dom';
+import { authActins } from '../../store/modules/authSlice';
 
 const Logout = () => {
     const { authed, user } = useSelector((state) => state.authR);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const onGo = () => {
+        dispatch(authActins.logout());
+        navigate('/login');
+    };
     return (
         <LogoutWrap>
             <div className='inner'>
@@ -17,7 +26,7 @@ const Logout = () => {
                         </h3>
 
                         <p>
-                            <button>로그아웃</button>
+                            <button onClick={onGo}>로그아웃</button>
                         </p>
                     </>
                 ) : (

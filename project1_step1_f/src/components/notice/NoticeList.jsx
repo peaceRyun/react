@@ -2,9 +2,21 @@ import { NoticeListWrap } from './style';
 import NoticeItem from './NoticeItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { noticeActions } from '../../store/modules/noticeSlice';
+import { pagenationActions } from '../../store/modules/pagenationSlice';
 
 const NoticeList = () => {
     const { noticeData } = useSelector((state) => state.noticeR);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(noticeActions.onLoad());
+    }, []);
+
+    useEffect(() => {
+        dispatch(pagenationActions.addData(noticeData));
+    }, [noticeData]);
+
     const postsPerPage = 10;
     const currentPage = 1;
 
@@ -14,12 +26,12 @@ const NoticeList = () => {
 
     return (
         <NoticeListWrap>
-            <table className="noticeTable">
+            <table className='noticeTable'>
                 <caption>게시판</caption>
                 <colgroup>
-                    <col className="num" />
-                    <col className="title" />
-                    <col className="date" />
+                    <col className='num' />
+                    <col className='title' />
+                    <col className='date' />
                 </colgroup>
                 <thead>
                     <tr>

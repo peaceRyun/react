@@ -2,11 +2,18 @@ import { CustomerLIstWrap } from './style';
 import CustomerItem from './CustomerItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { pagenationActions } from '../../store/modules/pagenationSlice';
 
 const CustomerLIst = () => {
     const { authed } = useSelector((state) => state.authR);
     const { customerData } = useSelector((state) => state.customerR);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(pagenationActions.addData(customerData));
+    }, [customerData]);
 
     const onAdd = () => {
         if (authed) {
@@ -24,13 +31,13 @@ const CustomerLIst = () => {
     const currentPost = customerData.slice(firstPost, lastPost);
     return (
         <CustomerLIstWrap>
-            <table className="customerTable">
+            <table className='customerTable'>
                 <caption>게시판</caption>
                 <colgroup>
-                    <col className="num" />
-                    <col className="title" />
-                    <col className="name" />
-                    <col className="date" />
+                    <col className='num' />
+                    <col className='title' />
+                    <col className='name' />
+                    <col className='date' />
                 </colgroup>
                 <thead>
                     <tr>

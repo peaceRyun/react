@@ -5,6 +5,7 @@ import noticeR from './modules/noticeSlice';
 import customerR from './modules/customerSlice';
 import cardR from './modules/cardSlice';
 import authR from './modules/authSlice';
+import pagenationR from './modules/pagenationSlice';
 
 export const store = configureStore({
     reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
         customerR,
         cardR,
         authR,
+        pagenationR,
     },
 });

@@ -30,7 +30,10 @@ export const authSlice = createSlice({
                 state.authed = false;
             }
         },
-        logout: (state, action) => {},
+        logout: (state, action) => {
+            state.authed = false;
+            state.user = null;
+        },
         signup: (state, action) => {
             const user = action.payload;
             state.joinData.push({ id: no++, ...user });
