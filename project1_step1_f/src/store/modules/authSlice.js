@@ -6,7 +6,7 @@ const initialState = {
             id: 1,
             username: '홍길동',
             tel: '010-0000-0000',
-            email: 'aaa@naver.com',
+            email: 'abc@naver.com',
             password: 'a1234',
         },
     ],
@@ -18,7 +18,18 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        login: (state, action) => {},
+        login: (state, action) => {
+            const { email, password } = action.payload;
+            const newItem = state.joinData.find((item) => item.email == email);
+            if (newItem && newItem.password === password) {
+                // if(newItem.password === password){
+                // }
+                state.authed = true;
+                state.user = newItem;
+            } else {
+                state.authed = false;
+            }
+        },
         logout: (state, action) => {},
         signup: (state, action) => {
             const user = action.payload;
