@@ -23,11 +23,11 @@ const Con3List = () => {
             pagination={{
                 clickable: true,
             }}
-            className="mybanner"
+            className='mybanner'
         >
             {/* 추가 */}
             {currentData.map((item) => (
-                <SwiperSlide key={item.id}>
+                <SwiperSlide key={item.no}>
                     <Con3Item {...item} />
                 </SwiperSlide>
             ))}

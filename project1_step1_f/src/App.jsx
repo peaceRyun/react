@@ -1,20 +1,9 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import GlobalStyle from './styled/GlobalStyle';
 import Layout from './common/Layout';
-import {
-    About,
-    Artist,
-    Customer,
-    Gallery,
-    Join,
-    Login,
-    Logout,
-    Main,
-    Music,
-    NotFiles,
-    Notice,
-} from './pages';
+import { About, Artist, Customer, Gallery, Join, Login, Logout, Main, Music, NotFiles, Notice } from './pages';
 import { CustomerAdd, CustomerDetail, CustomerEdit, NoticeDetail } from './components';
+import SubLayout from './common/SubLayout';
 
 const App = () => {
     return (
@@ -22,31 +11,34 @@ const App = () => {
             <BrowserRouter>
                 <GlobalStyle />
                 <Routes>
-                    <Route path="/" element={<Layout />}>
+                    <Route path='/' element={<Layout />}>
                         <Route index element={<Main />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/logout" element={<Logout />} />
-                        <Route path="/join" element={<Join />} />
-                        {/*  */}
-                        <Route path="/music" element={<Music />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/artist" element={<Artist />} />
-                        <Route path="/gallery" element={<Gallery />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/logout' element={<Logout />} />
+                        <Route path='/join' element={<Join />} />
 
-                        <Route path="/notice">
-                            <Route index element={<Notice />} />
-                            <Route path=":noticeID" element={<NoticeDetail />} />
-                        </Route>
+                        {/* 서브비주얼 */}
+                        <Route element={<SubLayout />}>
+                            <Route path='/music' element={<Music />} />
+                            <Route path='/about' element={<About />} />
+                            <Route path='/artist' element={<Artist />} />
+                            <Route path='/gallery' element={<Gallery />} />
 
-                        <Route path="/customer">
-                            <Route index element={<Customer />} />
-                            <Route path="customerAdd" element={<CustomerAdd />} />
-                            <Route path="customerEdit" element={<CustomerEdit />} />
-                            <Route path=":customerID" element={<CustomerDetail />} />
+                            <Route path='/notice'>
+                                <Route index element={<Notice />} />
+                                <Route path=':noticeID' element={<NoticeDetail />} />
+                            </Route>
+
+                            <Route path='/customer'>
+                                <Route index element={<Customer />} />
+                                <Route path='customerAdd' element={<CustomerAdd />} />
+                                <Route path='customerEdit' element={<CustomerEdit />} />
+                                <Route path=':customerID' element={<CustomerDetail />} />
+                            </Route>
                         </Route>
                     </Route>
 
-                    <Route path="*" element={<NotFiles />} />
+                    <Route path='*' element={<NotFiles />} />
                 </Routes>
             </BrowserRouter>
         </>

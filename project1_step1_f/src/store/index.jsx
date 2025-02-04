@@ -6,6 +6,7 @@ import customerR from './modules/customerSlice';
 import cardR from './modules/cardSlice';
 import authR from './modules/authSlice';
 import pagenationR from './modules/pagenationSlice';
+import commonR from './modules/commonSlice';
 
 export const store = configureStore({
     reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
         cardR,
         authR,
         pagenationR,
+        commonR,
     },
 });

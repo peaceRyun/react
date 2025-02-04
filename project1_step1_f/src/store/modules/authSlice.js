@@ -1,15 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    joinData: [
-        {
-            id: 1,
-            username: '홍길동',
-            tel: '010-0000-0000',
-            email: 'abc@naver.com',
-            password: 'a1234',
-        },
-    ],
+    joinData: localStorage.getItem('joinData')
+        ? JSON.parse(localStorage.getItem('joinData'))
+        : [
+              {
+                  id: 1,
+                  username: '홍길동',
+                  tel: '010-0000-0000',
+                  email: 'abc@naver.com',
+                  password: 'a1234',
+              },
+          ],
     authed: false,
     user: null,
 };
@@ -38,6 +40,7 @@ export const authSlice = createSlice({
             const user = action.payload;
             state.joinData.push({ id: no++, ...user });
             //state.joinData = [...state.joinData,{id:no++, ...user} ]
+            localStorage.setItem('joinData', JSON.stringify(state.joinData));
         },
     },
 });
