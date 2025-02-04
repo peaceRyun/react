@@ -8,6 +8,7 @@ import { pagenationActions } from '../../store/modules/pagenationSlice';
 const CustomerLIst = () => {
     const { authed } = useSelector((state) => state.authR);
     const { customerData } = useSelector((state) => state.customerR);
+    const { postsPerPage, currPage } = useSelector((state) => state.pagenationR);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -23,10 +24,7 @@ const CustomerLIst = () => {
         }
     };
 
-    const postsPerPage = 10;
-    const currentPage = 3;
-
-    const lastPost = currentPage * postsPerPage;
+    const lastPost = currPage * postsPerPage;
     const firstPost = lastPost - postsPerPage;
     const currentPost = customerData.slice(firstPost, lastPost);
     return (

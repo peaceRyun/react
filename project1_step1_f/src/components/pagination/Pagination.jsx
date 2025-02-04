@@ -16,13 +16,16 @@ const Pagination = () => {
     //배열, 공간을 개수만큼
     const arr = [...Array(totalPage)];
     const selectPage = (x) => {
-        dispatch(pagenationActions.currentPage(x));
+        if (x > 1 && x <= totalPage && x != currPage) {
+            dispatch(pagenationActions.currentPage(x));
+        }
     };
+
     return (
         <PaginationWrap>
             <div>
-                <button>{`<<`}</button>
-                <button>{`<`}</button>
+                <button onClick={() => dispatch(pagenationActions.firstPage())}>{`<<`}</button>
+                <button onClick={() => dispatch(pagenationActions.prevPage())}>{`<`}</button>
 
                 {arr.map((_, idx) => (
                     <button key={idx} className={currPage === idx + 1 ? 'on' : ''} onClick={() => selectPage(idx + 1)}>
@@ -30,8 +33,8 @@ const Pagination = () => {
                     </button>
                 ))}
 
-                <button>{`>`}</button>
-                <button>{`>>`}</button>
+                <button onClick={() => dispatch(pagenationActions.nextPage())}>{`>`}</button>
+                <button onClick={() => dispatch(pagenationActions.lastPage())}>{`>>`}</button>
             </div>
         </PaginationWrap>
     );

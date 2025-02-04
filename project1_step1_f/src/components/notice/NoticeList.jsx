@@ -7,6 +7,7 @@ import { pagenationActions } from '../../store/modules/pagenationSlice';
 
 const NoticeList = () => {
     const { noticeData } = useSelector((state) => state.noticeR);
+    const { postsPerPage, currPage } = useSelector((state) => state.pagenationR);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -17,10 +18,7 @@ const NoticeList = () => {
         dispatch(pagenationActions.addData(noticeData));
     }, [noticeData]);
 
-    const postsPerPage = 10;
-    const currentPage = 1;
-
-    const lastPost = currentPage * postsPerPage;
+    const lastPost = currPage * postsPerPage;
     const firstPost = lastPost - postsPerPage;
     const currentPost = noticeData.slice(firstPost, lastPost);
 

@@ -8,15 +8,20 @@ export const pagenationSlice = createSlice({
     reducers: {
         addData: (state, action) => {
             state.postData = action.payload;
+            state.currPage = 1;
         },
         totalData: (state, action) => {
             state.totalPage = Math.ceil(state.postData.length / state.postsPerPage);
         },
         nextPage: (state, action) => {
-            state.currPage++;
+            if (state.currPage < state.totalPage) {
+                state.currPage++;
+            }
         },
         prevPage: (state, action) => {
-            state.currPage--; //if문
+            if (state.currPage > 1) {
+                state.currPage--;
+            }
         },
         firstPage: (state, action) => {
             state.currPage = 1;
